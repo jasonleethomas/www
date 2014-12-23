@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1-transitional.dtd">
+<html xmlns="www.w3c.org/1999/html1" lang="en">
+	<head>
+		<title>Hire Jason-Lee: Contact</title>
+		<script language="text/javascript">
+			"use strict";
+			function validate_form(form) 
+			{
+				var returnVal = true;
+				var rxEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				function validate(ctrl, val) 
+				{
+					if(!val) 
+					{
+						ctrl.style.borderColor = "red";
+						ctrl.focus(); 
+						returnVal = false;
+					}
+				}
+				
+				validate(form.txtMessage, form.txtMessage.value);
+				validate(form.selSubject, form.selSubject.selectedIndex);
+				validate(form.txtEMail, rxEmail.test(form.txtEMail.value));
+				validate(form.txtFName, form.txtFName.value);
+				validate(form.txtLName, form.txtLName.value);
+		
+				return returnVal;
+			}
+		</script>
+		<script language="php">
+		
+			$email_to = "jasonlee_@outlook.com";
+			
+			
+			$name_last = $_POST['txtLName'];
+			$name_first = $_POST['txtFName'];
+			$company = $_POST['txtCompany'];
+			$email = $_POST['txtEMail'];
+			$subject = $_POST['selSubject'];
+			$message = $_POST['txtMessage'];
+			
+			
+			
+			
+			
+			$validated = (	!empty($name_last) &&
+							!empty($name_first) &&
+							!empty($company) &&
+							!empty($message) &&	)
+			if(!$validated){
+				died("Oops you may have made a mistake there.")
+			}
+			else {
+				
+			}
+			
+			
+		</script>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	<body>
+		<div class="page" id="contact">
+			<div class="sec" id="header">
+				<div id="header-name"><a href="index.html"><span class="green">hire</span>JasonLee</a></div>	
+				<div id="header-contact">
+					<a href="mailto:jasonlee_@outlook.com">jasonlee_@outlook.com</a>
+					<a href="">1(786)465-5642</a>				
+				</div>
+			</div>	
+			<div class="sec" id="nav">
+				<a href="index.html">Home</a>
+				<a href="resume.html">Resume</a>
+				<a href="projects.html">Projects<sub>TBC</sub></a>
+				<a href="research.html">Research<sub>TBC</sub></a>
+				<a href="contact.html">Contact</a>
+			</div>
+			<div class="sec" id="main">
+				<div class="sec-subsec" id="main-mail">
+					<div class="sec-subsec-body">
+						<p>16 Woodlawn Road <br/>
+							Mandeville, Manchester </br>
+							Jamaica, JMDMR17</p>
+						<p>1(876) 433-4604 (Local)<br/>
+							1(786) 465-5642 (Intl.)</p>	
+					</div>
+				</div>	
+				<div class="sec-subsec" id="main-contact">
+					<div class="sec-subsec-body" id="main-contact-form">
+						<form name="frmEmail" onsubmit="return validate_form(this);" action="<?= $PHP_SELF ?>" method="POST">
+							<div id="main-contact-mail-form">
+								<div class="form-header">Last Name</div>
+								<input type="text" name="txtLName" size="30" autofocus="true"/>
+								<div class="form-header">First Name</div>
+								<input type="text" name="txtFName" size="30"/>
+								<div class="form-header">Company</div>
+								<input type="text" name="txtCompany" size="30"/>
+								<div class="form-header">Email</div>
+								<input type="text" name="txtEMail" size="30"/>
+								<div class="form-header">Subject</div>	
+								<select name="selSubject">
+									<option value="select" select="selected">Select Subject</option>
+									<option value="career">Career Opportunity</option>
+									<option value="project">Project Ideas</option>
+									<option value="research">Research Interests</option>
+									<option value="personal">Personal Feedback</option>
+								</select>
+								<textarea name="txtMessage" cols="60" rows="10"></textarea>
+								<input type="submit" name="btnSend" value="Send"/>
+							</div>	
+						</form>
+					</div>
+				</div>
+			</div>	
+			<div class="sec" id="footer">
+				<div id="footer-contact"></div>
+				<div id="footer-social">
+					<div id="footer-social-icons">
+						<a href="https://github.com/jasonleethomas" target="_blank" title="GitHub">
+							<img src="images/iconsg/github.png" title="GitHub" alt="GitHub" 
+							onmouseover="src='images/iconsg/githubc.png';" onmouseout="src='images/iconsg/github.png';" /></a>
+						<a href="https://www.linkedin.com/in/hirejasonlee" title="LinkedIn" target="_blank">
+							<img src="images/iconsg/linkedin.png" title="LinkedIn" alt="LinkedIn"
+							onmouseover="src='images/iconsg/linkedinc.png';" onmouseout="src='images/iconsg/linkedin.png';"/></a>
+						<a href="https://twitter.com/hirejasonlee" target="_blank" title="Twitter">
+							<img src="images/iconsg/twitter.png" title="Twitter" alt="Twitter"
+							onmouseover="src='images/iconsg/twitterc.png';" onmouseout="src='images/iconsg/twitter.png';"/></a>
+						<a href="https://www.dropbox.com/sh/ajvtci39504hl5x/AACtUh7L-23UjyrgrF9hWv0Ra" target="_blank" title="Dropbox">
+							<img src="images/iconsg/dropbox.png" title="Dropbox" alt="Dropbox"
+							onmouseover="src='images/iconsg/dropboxc.png';" onmouseout="src='images/iconsg/dropbox.png';"/></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
